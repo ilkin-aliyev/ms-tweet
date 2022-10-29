@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create post_details table
+      author: Ilkin Aliyev
+      changes:
+        - createTable:
+            tableName: post_details
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    foreignKeyName: fk_post_details_to_posts
+                    references: posts(id)
+              - column:
+                  name: created_on
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_by
+                  type: text
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about post details

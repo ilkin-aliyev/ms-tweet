@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create post_tag table
+      author: Ilkin Aliyev
+      changes:
+        - createTable:
+            tableName: post_tag
+            columns:
+              - column:
+                  name: post_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_post_tag_to_post
+                    references: posts(id)
+                    nullable: false
+              - column:
+                  name: tag_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_post_tag_to_tag
+                    references: tags(id)
+                    nullable: false
+
+            remarks: Table to store information about relation between post and tag

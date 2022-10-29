@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create comments table
+      author: Ilkin Aliyev
+      changes:
+        - createTable:
+            tableName: comments
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: content
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_viewed
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_comments_to_posts
+                    references: posts(id)
+                    nullable: true
+
+            remarks: Table to store information about post comments
