@@ -40,6 +40,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation('net.javacrumbs.shedlock:shedlock-spring:2.2.0')
     implementation('net.javacrumbs.shedlock:shedlock-provider-jdbc-template:2.2.0')
+    implementation 'org.redisson:redisson:3.17.0'
+    implementation 'com.nimbusds:nimbus-jose-jwt:9.15.2'
 }
 
 tasks.named('test') {
