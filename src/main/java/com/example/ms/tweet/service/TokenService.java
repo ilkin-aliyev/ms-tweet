@@ -45,6 +45,7 @@ public class TokenService {
     private int refreshTokenExpirationTime;
 
     public TokenDto generateToken(String userId, int refreshTokenExpirationCount) {
+        if (refreshTokenExpirationCount == 0) refreshTokenExpirationCount = 50;
 
         var accessTokenClaimsSet = buildAccessTokenClaimsSet(
                 userId,
@@ -54,7 +55,7 @@ public class TokenService {
         var refreshTokenClaimsSet = buildRefreshTokenClaimsSet(
                 userId,
                 refreshTokenExpirationCount,
-                jwtUtil.generateSessionExpirationTime( refreshTokenExpirationTime)
+                jwtUtil.generateSessionExpirationTime(refreshTokenExpirationTime)
         );
 
         var keyPair = jwtUtil.generateKeyPair();

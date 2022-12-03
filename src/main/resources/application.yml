@@ -36,3 +36,7 @@ crypt:
     aes: AES
   token-secret-key: a
   global-salt: app-global-salt
+
+client:
+  ms-permission:
+    endpoint: http://localhost:9090

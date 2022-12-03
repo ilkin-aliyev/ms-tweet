@@ -2,12 +2,14 @@ package com.example.ms.tweet.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import static com.example.ms.tweet.model.constant.ExceptionConstants.UNEXPECTED_EXCEPTION_CODE;
 import static com.example.ms.tweet.model.constant.ExceptionConstants.UNEXPECTED_EXCEPTION_MESSAGE;
+import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -26,6 +28,13 @@ public class ErrorHandler {
     public ExceptionResponse handle(NotFoundException ex) {
         log.error("NotFoundException: ", ex);
         return new ExceptionResponse(ex.getCode(), ex.getMessage());
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(FORBIDDEN)
+    public ExceptionResponse handle(AccessDeniedException ex) {
+        log.error("AccessDeniedException: ", ex);
+        return new ExceptionResponse("ACCESS_DENIED","User don't have access for this operation");
     }
 
     @ExceptionHandler(AuthException.class)

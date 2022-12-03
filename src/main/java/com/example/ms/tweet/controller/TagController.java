@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/tags")
+@RequestMapping("v1/tweet/tags")
 @RequiredArgsConstructor
 public class TagController {
     private final TagService tagService;

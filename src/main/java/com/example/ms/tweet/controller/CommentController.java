@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/comments")
+@RequestMapping("v1/tweet/comments")
 @RequiredArgsConstructor
 public class CommentController {
     private final CommentService commentService;

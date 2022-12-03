@@ -7,16 +7,11 @@ import com.example.ms.tweet.mapper.PostMapper;
 import com.example.ms.tweet.mapper.factory.CommentFactory;
 import com.example.ms.tweet.mapper.factory.PostDetailFactory;
 import com.example.ms.tweet.mapper.factory.PostFactory;
-import com.example.ms.tweet.model.dto.CommentDto;
 import com.example.ms.tweet.model.dto.PostDto;
 import com.example.ms.tweet.model.dto.SaveCommentDto;
 import com.example.ms.tweet.model.dto.SavePostDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-
-import java.util.List;
 
 import static com.example.ms.tweet.model.constant.ExceptionConstants.POST_NOT_FOUND_CODE;
 import static com.example.ms.tweet.model.constant.ExceptionConstants.POST_NOT_FOUND_MESSAGE;
