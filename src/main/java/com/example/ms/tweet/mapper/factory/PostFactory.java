@@ -9,4 +9,8 @@ public class PostFactory {
                 .title(dto.getTitle())
                 .build();
     }
+
+    public static String buildFullName(String firstName, String lastName) {
+        return String.format("%s %s", lastName, firstName);
+    }
 }
