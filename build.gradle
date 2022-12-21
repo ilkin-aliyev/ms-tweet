@@ -43,12 +43,15 @@ dependencies {
     testImplementation group: 'org.spockframework', name: 'spock-spring', version: '2.2-M1-groovy-4.0'
     testImplementation('io.github.benas:random-beans:3.9.0')
 
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+
     implementation('net.javacrumbs.shedlock:shedlock-spring:2.2.0')
     implementation('net.javacrumbs.shedlock:shedlock-provider-jdbc-template:2.2.0')
     implementation 'org.redisson:redisson:3.17.0'
     implementation 'com.nimbusds:nimbus-jose-jwt:9.15.2'
     implementation 'org.springframework.boot:spring-boot-starter-security:2.7.5'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 
 }
 

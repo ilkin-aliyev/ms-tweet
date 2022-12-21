@@ -16,6 +16,24 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 3s
+          max-attempts: 5
+          max-interval: 5s
+          multiplier: 1
+        missing-queues-fatal: false
+
+rabbitmq:
+  queue:
+    test: TEST_Q
+    test-dlq: TEST_DLQ
 
 redis:
   server:
